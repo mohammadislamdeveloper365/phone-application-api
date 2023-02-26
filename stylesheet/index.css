@@ -1,0 +1,58 @@
+body {
+    font-family: 'Fjalla One', sans-serif;
+    --primary-color:rgb(18, 14, 67,0.875);
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+:root {
+    font-size:100%;
+}
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.phone-store-header {
+    background-color:var(--primary-color);
+}
+
+.phone-search-section {
+    max-width:768px;
+    margin:auto;
+}
+
+#phone-store-search-input {
+    border:none;
+    outline:none;
+    border-bottom:1px solid var(--primary-color);
+}
+
+#phone-store-search-btn {
+    background-color: var(--primary-color);
+}
+
+@media screen and(max-width:992px) {
+    :root {
+        font-size: 90%;
+    }
+    
+}
+
+@media screen and(max-width:768px) {
+    :root {
+        font-size: 80%;
+    }
+    
+}
+
+@media screen and(max-width:575px) {
+    :root {
+        font-size: 70%;
+    }
+    
+}
+

@@ -9,13 +9,20 @@ loadPhones('iphone');
 addClickListener("phone-store-search-btn",searchClickHandler);
 
 function displayPhones(apiResponse) {
-    toggleBodySpinner(true);
     let container = getElement("phone-store-container");
     let ele = getElement('error-message');
+    let searchAllBtn = getElement('phone-store-all-search-btn');
+    toggleBodySpinner(true);
     addElementText(container,'',false);
     ele.classList.add('d-none');
+
     console.log(apiResponse)
     if(apiResponse.length) {
+        if(apiResponse.length > 10) {
+            apiResponse = apiResponse.slice(0,10);
+            searchAllBtn.classList.remove('d-none')
+        }
+
         for(phone of apiResponse) {
             let phoneCard = createElement('div','col-lg-3','col-md-5','mr-1','mb-2','d-flex','flex-column','align-items-center');
             let phoneName = createElement('p');
@@ -42,8 +49,12 @@ function displayPhones(apiResponse) {
     
 }
 
+
+
 function searchClickHandler() {
     let inputValue = getElementValue('phone-store-search-input',true);
+    let searchAllBtn = getElement('phone-store-all-search-btn');
+    searchAllBtn.classList.add('d-none');
     inputValue = inputValue.trim();
     console.log(inputValue);
     toggleButtonSpinner(true);
@@ -107,3 +118,16 @@ function toggleButtonSpinner(isLoading) {
         getElement('search-text').classList.remove('d-none');
     }
 }
+
+// function toggleAllButtonSpinner(isLoading) {
+//     if(isLoading) {
+//         getElement('loading-all-text').classList.remove('d-none');
+//         getElement('search-all-text').classList.add('d-none');
+        
+//     }
+    
+//     else {
+//         getElement('loading-all-text').classList.add('d-none');
+//         getElement('search-all-text').classList.remove('d-none');
+//     }
+// }

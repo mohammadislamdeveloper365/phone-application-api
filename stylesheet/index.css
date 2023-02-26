@@ -31,8 +31,13 @@ body {
     border-bottom:1px solid var(--primary-color);
 }
 
-#phone-store-search-btn {
+.search-btn {
     background-color: var(--primary-color);
+    margin-right:1rem;
+}
+
+.search-btn:hover {
+    background-color:var(--primary-color) ;
 }
 
 @media screen and(max-width:992px) {

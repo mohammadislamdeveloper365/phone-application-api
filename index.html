@@ -22,7 +22,7 @@
         <section class="phone-search-section  mb-3">
             <div class="d-flex justify-content-center mb-2">
                 <input type="text" class="p-1" id="phone-store-search-input">
-                <button class="btn text-white" id="phone-store-search-btn">
+                <button class="text-white search-btn btn" class="search-btn" id="phone-store-search-btn">
                     <span id="search-text">Search Your Phone </span>
                     <div id="loading-text" class="d-none">
                         <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
@@ -30,6 +30,15 @@
                         <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                         <span>Loading...</span>
                     </div>
+                </button>
+                <button class="btn text-white search-btn d-none"  id="phone-store-all-search-btn">
+                    <span id="search-all-text">Show All </span>
+                    <!-- <div id="loading-all-text" class="d-none">
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        <span>Loading...</span>
+                    </div> -->
                 </button>
             </div>
             <p id="error-message" class="d-none text-center text-danger">Sorry!!! No Phone Found!!! Please Try another search</p>

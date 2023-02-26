@@ -9,6 +9,7 @@ loadPhones('iphone');
 addClickListener("phone-store-search-btn",searchClickHandler);
 
 function displayPhones(apiResponse) {
+    toggleBodySpinner(true);
     let container = getElement("phone-store-container");
     let ele = getElement('error-message');
     addElementText(container,'',false);
@@ -27,10 +28,16 @@ function displayPhones(apiResponse) {
             container.append(phoneCard);
         
         }
+
+        toggleBodySpinner(false);
+        toggleButtonSpinner(false);
     }
 
     else {
-        ele.classList.remove('d-none')
+        toggleBodySpinner(false);
+        toggleButtonSpinner(false);
+        ele.classList.remove('d-none');
+        
     }
     
 }
@@ -38,9 +45,11 @@ function displayPhones(apiResponse) {
 function searchClickHandler() {
     let inputValue = getElementValue('phone-store-search-input',true);
     inputValue = inputValue.trim();
-    console.log(inputValue)
+    console.log(inputValue);
+    toggleButtonSpinner(true);
     loadPhones(inputValue)
 }
+
 function createElement(tagName,...classList) {
     let ele = document.createElement(tagName);
     if(classList) {
@@ -52,11 +61,13 @@ function createElement(tagName,...classList) {
 
     else return ele;
 }
+
 function addElementText(element,text,isInput) {
     if(isInput)
     element.value = text;
     else element.innerText = text;
 }
+
 function getElement(id) {
     return document.getElementById(id);
 }
@@ -71,3 +82,28 @@ function addClickListener(id,callBack) {
     getElement(id).addEventListener('click',callBack);
 }
 
+function toggleBodySpinner(isLoading) {
+    if(isLoading) {
+        getElement('body-spinner').classList.remove('d-none');
+    }
+    
+    else {
+        getElement('body-spinner').classList.add('d-none');
+
+    }
+    
+    
+}
+
+function toggleButtonSpinner(isLoading) {
+    if(isLoading) {
+        getElement('loading-text').classList.remove('d-none');
+        getElement('search-text').classList.add('d-none');
+        
+    }
+    
+    else {
+        getElement('loading-text').classList.add('d-none');
+        getElement('search-text').classList.remove('d-none');
+    }
+}

@@ -56,7 +56,7 @@ function displayPhones(apiResponse,dataLimit) {
             
                   <!-- Modal body -->
                   <div class="modal-body">
-                    Phone Model: ${phone.phone_name}
+                    Model/Series: ${phone.phone_name}
                     <br/>
                     image link: ${phone.image}
                   </div>

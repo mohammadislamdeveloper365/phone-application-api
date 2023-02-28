@@ -1,6 +1,6 @@
 body {
     font-family: 'Fjalla One', sans-serif;
-    --primary-color:rgb(18, 14, 67,0.875);
+    --primary-color:rgba(57, 48, 157, 0.875);
 }
 
 .row {
